@@ -32,3 +32,5 @@ nnoremap <Leader>a ggVG
 nnoremap <Leader>s :w<CR>
 " space qで終了
 nnoremap <Leader>q :q<CR>
+" space spaceでビジュアルラインモードに
+nnoremap <Leader><Leader> V 
