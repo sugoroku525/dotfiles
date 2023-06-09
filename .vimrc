@@ -23,5 +23,12 @@ set fenc=utf-8
 set whichwrap=b,s,h,l,<,>,[,],~
 set backspace=indent,eol,start
 
+" Leaderキーをspaceキーに設定
+let mapleader = "\<Space>"
 
-
+" space aで全選択
+nnoremap <Leader>a ggVG
+" space sで保存
+nnoremap <Leader>s :w<CR>
+" space qで終了
+nnoremap <Leader>q :q<CR>
