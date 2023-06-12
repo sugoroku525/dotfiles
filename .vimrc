@@ -1,7 +1,7 @@
 "i 行番号を表示
 set number
 " カーソル行のハイライト
-set cursorline
+" set cursorline
 " 入力中のコマンドの表示
 set showcmd
 " ファイル上部にパス等表示
@@ -15,9 +15,8 @@ set smartindent
 " jjでescapeできるように
 inoremap <silent> jj <ESC>
 
-autocmd Colorscheme * highlight FullWidthSpace Ctermbg=black
-autocmd VimEnter * match FullWidthSpace / /
-colorscheme desert
+set background=light
+colorscheme solarized
 
 set fenc=utf-8
 set whichwrap=b,s,h,l,<,>,[,],~
