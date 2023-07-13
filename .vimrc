@@ -5,7 +5,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'preservim/nerdtree'
 Plug 'mbbill/undotree'
 call plug#end()
-
+			
 " vimを開いた時にNERDTreeを開く
 autocmd vimenter * NERDTree
 "他のバッファをすべて閉じた時にNERDTreeが開いていたらNERDTreeも一緒に閉じる。
@@ -29,13 +29,15 @@ set hls
 inoremap <silent> jj <ESC>\
 "自動コメントアウトをオフに
 autocmd FileType * set formatoptions-=ro
+" タブを4文字分に
+set tabstop=4
 set background=light
 colorscheme solarized
-
+	
 set fenc=utf-8
 set whichwrap=b,s,h,l,<,>,[,],~
 set backspace=indent,eol,start
-
+	
 " Leaderキーをspaceキーに設定
 let mapleader = "\<Space>"
 
