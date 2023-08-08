@@ -5,46 +5,32 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install()  }  }
 Plug 'junegunn/fzf.vim'
 Plug 'preservim/nerdtree'
 Plug 'mbbill/undotree'
-" dc.vim本体
-Plug 'Shougo/ddc.vim'
-" DenoでVimプラグインを開発するためのプラグイン
-Plug 'vim-denops/denops.vim'
-" ポップアップウィンドウを表示するプラグイン
-Plug 'Shougo/pum.vim'
-" カーソル周辺の既出単語を補完するsource
-Plug 'Shougo/ddc-around'
-" ファイル名を補完するsource
-Plug 'LumaKernel/ddc-file'
-" 単語を補完の対象にするfilter
-Plug 'Shougo/ddc-matcher_head'
-" 補完候補を適切にソートするfilter
-Plug 'Shougo/ddc-sorter_rank'
-" 補完候補の重複を防ぐためのfilter
-Plug 'Shougo/ddc-converter_remove_overlap'
-" LSP(Language server protocol)を使うためのプラグ
-Plug 'mattn/vim-lsp-settings'
-Plug 'prabirshrestha/vim-lsp'
+" syntax check
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 call plug#end()			
 
-" pathogen
-execute pathogen#infect()
 
-" syntasticの設定
-" 最初の2行はお決まりの設定
-let g:syntastic_enable_signs=1
-let g:syntastic_auto_loc_list=2
-" 明示的に文法チェックを走らせる
-let g:syntastic_mode_map = {'mode': 'passive'} 
-" insertモード抜けた時, バッファが変更された時にsyntasticを呼び出す
-augroup AutoSyntastic
-	autocmd!
-	autocmd InsertLeave,TextChanged * call s:syntastic() 
-augroup END
-" 保存とsyntasticによる文法チェック
-function! s:syntastic()
-	w
-	SyntasticCheck
+" タブでCOCの予測変換を補足する
+inoremap <silent><expr> <TAB>
+      \ coc#pum#visible() ? coc#pum#next(1) :
+	        \ CheckBackspace() ? "\<Tab>" :
+			      \ coc#refresh()
+inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
+
+" Make <CR> to accept selected completion item or notify coc.nvim to format
+" <C-g>u breaks current undo, please make your own choice
+inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm()
+                              \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+
+
+function! CheckBackspace() abort
+		  let col = col('.') - 1
+		    return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
+
+" cocのエラー・警告の色
+highlight CocErrorSign ctermfg=15 ctermbg=196
+highlight CocWarningSign ctermfg=0 ctermbg=172
 
 
 " vimを開いた時にNERDTreeを開く
@@ -72,9 +58,12 @@ inoremap <silent> jj <ESC>\
 autocmd FileType * set formatoptions-=ro
 " タブを4文字分に
 set tabstop=4
+" solarrized lightのテーマ
 set background=light
 colorscheme solarized
-	
+
+" ヤンクをクリップボードに保持
+set clipboard+=unnamed
 set fenc=utf-8
 set whichwrap=b,s,h,l,<,>,[,],~
 set backspace=indent,eol,start
@@ -88,10 +77,6 @@ nnoremap <Leader>a ggVG
 nnoremap <Leader>s :w<CR>
 " space qで終了
 nnoremap <Leader>q :q<CR>
-" 保存せずに終了
-nnoremap <Leader>w :q!<CR>
-" space rでwindowを全て閉じる
-nnoremap <Leader>qa :qa<CR>
 " space spaceでビジュアルラインモードに
 nnoremap <Leader><Leader> V 
 " space nでNERDTreeを表示
@@ -105,6 +90,7 @@ map <C-h> gT
 " ctrl lで右にタブ移動
 map <C-l> gt
 
+
 " fzfでファイル, 単語検索　
 " ファイル内で単語検索
 nnoremap <silent> <Leader>f :Lines<CR>
@@ -115,33 +101,6 @@ nnoremap <silent> <Leader>ff :Files<CR>
 
 " マウスの有効化
 set mouse=a
-set ttymouse=xterm2
 
-" 予測変換のための設定
-call ddc#custom#patch_global('completionMenu', 'pum.vim')
-call ddc#custom#patch_global('sources', [
-	\ 'around',
-	\ 'vim-lsp',
-	\ 'file'
- 	\])
-call ddc#custom#patch_global('sourceOptions', {
-	\ '_': {
-	\   'matchers': ['matcher_head'],
-	\   'sorters': ['sorter_rank'],
-	\   'converters': ['converter_remove_overlap'],
-	\ },
-	\ 'around': {'mark': 'Around'},
-	\ 'vim-lsp': {
-	\   'mark': 'LSP', 
-	\   'matchers': ['matcher_head'],
-	\   'forceCompletionPattern': '\.|:|->|"\w+/*'
- 	\ },
- 	\ 'file': {
-  	\   'mark': 'file',
-   	\   'isVolatile': v:true, 
-    \   'forceCompletionPattern': '\S/\S*'
-    \ }})
-call ddc#enable()
-" inoremap <Tab> <Cmd>call pum#map#insert_relative(+1)<CR>
-" inoremap <S-Tab> <Cmd>call pum#map#insert_relative(-1)<CR>
+
 
