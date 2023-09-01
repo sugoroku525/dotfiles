@@ -3,7 +3,10 @@ call plug#begin()
 Plug 'jiangmiao/auto-pairs'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install()  }  }
 Plug 'junegunn/fzf.vim'
+" NERDTREE
 Plug 'preservim/nerdtree'
+" NERDTREEのためのプラグイン
+Plug 'jistr/vim-nerdtree-tabs'
 Plug 'mbbill/undotree'
 " syntax check
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -37,6 +40,8 @@ highlight CocWarningSign ctermfg=0 ctermbg=172
 autocmd vimenter * NERDTree
 "他のバッファをすべて閉じた時にNERDTreeが開いていたらNERDTreeも一緒に閉じる。
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+" すべてのタブで同じNERDTreeを開く
+autocmd BufWinEnter * if getcmdwintype() == '' | silent NERDTreeMirror | endif
 
 " 行番号を表示
 set number
