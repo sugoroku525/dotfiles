@@ -63,9 +63,14 @@ inoremap <silent> jj <ESC>\
 autocmd FileType * set formatoptions-=ro
 " タブを4文字分に
 set tabstop=4
+" 自動インデント時のインデント量
+set shiftwidth=4
 " solarrized lightのテーマ
 set background=light
 colorscheme solarized
+
+" 言語構文を考慮したインデント
+set cindent
 
 " ヤンクをクリップボードに保持
 set clipboard+=unnamed
