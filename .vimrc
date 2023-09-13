@@ -81,6 +81,10 @@ set backspace=indent,eol,start
 " Leaderキーをspaceキーに設定
 let mapleader = "\<Space>"
 
+" 折り返しの文字を飛ばさずに上移動
+nnoremap j gj
+" 折り返しの文字を飛ばさずに下移動
+nnoremap k gk
 " space aで全選択
 nnoremap <Leader>a ggVG
 " space sで保存
