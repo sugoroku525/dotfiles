@@ -10,6 +10,8 @@ Plug 'jistr/vim-nerdtree-tabs'
 Plug 'mbbill/undotree'
 " syntax check
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+" コメントアウト補助ツール
+Plug 'tpope/vim-commentary'
 call plug#end()			
 
 
@@ -78,6 +80,8 @@ set fenc=utf-8
 set whichwrap=b,s,h,l,<,>,[,],~
 set backspace=indent,eol,start
 
+" スワップファイルを作らない設定
+set noswapfile
 " Leaderキーをspaceキーに設定
 let mapleader = "\<Space>"
 
@@ -85,6 +89,9 @@ let mapleader = "\<Space>"
 nnoremap j gj
 " 折り返しの文字を飛ばさずに下移動
 nnoremap k gk
+" クリップボードに入れずにカット
+nnoremap d "_d
+nnoremap D "_D
 " space aで全選択
 nnoremap <Leader>a ggVG
 " space sで保存
