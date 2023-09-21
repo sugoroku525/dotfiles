@@ -10,6 +10,8 @@ Plug 'jistr/vim-nerdtree-tabs'
 Plug 'mbbill/undotree'
 " syntax check
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+" vim-polyglot, syntax highlight
+Plug 'sheerun/vim-polyglot'
 " コメントアウト補助ツール
 Plug 'tpope/vim-commentary'
 call plug#end()			

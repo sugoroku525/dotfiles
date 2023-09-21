@@ -1,3 +1,5 @@
+" vim-polyglotのために必要そう
+set nocompatible
 " vim-plugもろもろ
 call plug#begin()
 Plug 'jiangmiao/auto-pairs'
@@ -14,6 +16,8 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'tpope/vim-commentary'
 " nvimのsolarizedカラースキーム
 Plug 'shaunsingh/solarized.nvim'
+" syntax highlight
+Plug 'sheerun/vim-polyglot'
 call plug#end()			
 
 
