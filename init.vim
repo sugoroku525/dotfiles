@@ -18,6 +18,8 @@ Plug 'tpope/vim-commentary'
 Plug 'shaunsingh/solarized.nvim'
 " syntax highlight
 Plug 'sheerun/vim-polyglot'
+" C言語用フォーマット
+Plug 'rhysd/vim-clang-format'
 call plug#end()			
 
 
@@ -50,6 +52,13 @@ autocmd vimenter * NERDTree
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 " すべてのタブで同じNERDTreeを開く
 autocmd BufWinEnter * if getcmdwintype() == '' | silent NERDTreeMirror | endif
+
+" clang format
+augroup save_clang
+	autocmd!
+	autocmd BufWritePost *.[ch] ClangFormat
+	autocmd BufWritePost *.cpp ClangFormat
+augroup END
 
 " 行番号を表示
 set number
