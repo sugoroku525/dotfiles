@@ -120,5 +120,5 @@ export ENHANCD_FILTER="fzf --height 40%:fzy"
 
 alias vi='nvim'
 alias vim='nvim'
-[ -f ~/dotfiles/.zsh.`hostname -s` ] && source ~/dotfiles/.zsh.`hostname -s` 
+[ -f ~/dotfiles/zshrc/.zsh.`hostname -s` ] && source ~/dotfiles/zshrc/.zsh.`hostname -s` 
 
