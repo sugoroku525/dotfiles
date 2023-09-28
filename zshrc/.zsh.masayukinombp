@@ -10,7 +10,7 @@ export ZSH="$HOME/.oh-my-zsh"
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 ZSH_THEME="powerlevel9k/powerlevel9k"
 POWERLEVEL9K_MODE="nerdfont-complete"
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(host os_icon dir vcs)
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(os_icon dir vcs)
 POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=()
 
 #Directory color
@@ -121,3 +121,11 @@ export ENHANCD_FILTER="fzf --height 40%:fzy"
 alias vi='nvim'
 alias vim='nvim'
 
+
+# 末尾に%ではなく空白にする
+count=`ps aux | grep tmux | grep -v grep | wc -l`
+if [ $count -eq 0 ]; then
+    echo `tmux`
+elif [ $count -eq 1 ]; then
+    echo `tmux a`
+fi
