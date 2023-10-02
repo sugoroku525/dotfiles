@@ -91,10 +91,15 @@ colorscheme solarized
 set cindent
 
 " ヤンクをクリップボードに保持
-set clipboard=unnamed
+set clipboard+=unnamed
 set fenc=utf-8
 set whichwrap=b,s,h,l,<,>,[,],~
 set backspace=indent,eol,start
+
+" ctagssのためのやつ
+set fileformats=unix,dos,mac
+set fileencodings=utf-8,sjis
+set tags=.tags
 
 " スワップファイルを作らない設定
 set noswapfile
@@ -123,6 +128,8 @@ nnoremap <Leader>n :NERDTreeToggle<CR>
 nnoremap <Leader>o :noh<CR>
 " space mでカーソルを移動
 nnoremap <Leader>m <C-w>w
+" space gでGoyoを起動
+nnoremap <Leader>g :Goyo<CR>
 " ctrl hで左にタブ移動
 map <C-h> gT
 " ctrl lで右にタブ移動
