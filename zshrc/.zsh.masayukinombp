@@ -123,6 +123,7 @@ alias vim='nvim'
 
 
 # 末尾に%ではなく空白にする
+# itermを開くたびにtmuxを起動しないようにする
 count=`ps aux | grep tmux | grep -v grep | wc -l`
 if [ $count -eq 0 ]; then
     echo `tmux`
