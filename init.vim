@@ -20,8 +20,9 @@ Plug 'shaunsingh/solarized.nvim'
 Plug 'sheerun/vim-polyglot'
 " C言語用フォーマット
 Plug 'rhysd/vim-clang-format'
+" vimの画面を綺麗にするパッケージ
+Plug 'junegunn/goyo.vim'
 call plug#end()			
-
 
 " タブでCOCの予測変換を補足する
 inoremap <silent><expr> <TAB>
@@ -90,7 +91,7 @@ colorscheme solarized
 set cindent
 
 " ヤンクをクリップボードに保持
-set clipboard+=unnamed
+set clipboard=unnamed
 set fenc=utf-8
 set whichwrap=b,s,h,l,<,>,[,],~
 set backspace=indent,eol,start
@@ -128,7 +129,6 @@ map <C-h> gT
 map <C-l> gt
 " space c でコメントアウト
 map <Leader>c gcjj
-
 " fzfでファイル, 単語検索　
 " ファイル内で単語検索
 nnoremap <silent> <Leader>f :Lines<CR>
