@@ -130,3 +130,12 @@ alias vim='nvim'
 
 # 末尾に%ではなく空白にする
 export PROMPT_EOL_MARK=''
+
+
+# tmuxを開いていない場合, tmuxを開く. そして, itermを開くたびにtmuxを起動しないようにする
+count=`ps aux | grep tmux | grep -v grep | wc -l`
+if [ $count -eq 0 ]; then
+    echo `tmux`
+elif [ $count -eq 1 ]; then
+    echo `tmux a`
+fi
