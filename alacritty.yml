@@ -57,3 +57,13 @@ key_bindings:
   # tmuxのprefixをCtrl-Qにしているので、その設定
   # これがないとtmuxのprefixが効かずに、Alacrittyのキーバインドに持っていかれるっぽい？
   - { key: Q,         mods: Control, chars: "\x11"                        } # tmux prefix
+
+# color schemeの変更
+import:
+  - ~/.alacritty-colorscheme/themes/solarized_dark.yaml
+
+shemes:
+  solarized_light: &light
+  solarized_dark: &dark
+
+colors: *light
