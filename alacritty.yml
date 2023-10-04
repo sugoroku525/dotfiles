@@ -8,11 +8,8 @@ window:
   padding:
     x: 8
     y: 4
-  
-  decorations: buttonless
 
-# 少し透過
-window_opacity: 0.1
+
 
 
 
@@ -58,12 +55,9 @@ key_bindings:
   # これがないとtmuxのprefixが効かずに、Alacrittyのキーバインドに持っていかれるっぽい？
   - { key: Q,         mods: Control, chars: "\x11"                        } # tmux prefix
 
-# color schemeの変更
+
+# alacritty.ymlを変更するとすぐに反映
+live_config_reload : true
+
 import:
-  - ~/.alacritty-colorscheme/themes/solarized_dark.yaml
-
-shemes:
-  solarized_light: &light
-  solarized_dark: &dark
-
-colors: *light
+  - ~/.config/alacritty/colors/solarized_dark.yaml

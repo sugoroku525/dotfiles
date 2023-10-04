@@ -135,7 +135,7 @@ map <C-h> gT
 " ctrl lで右にタブ移動
 map <C-l> gt
 " space c でコメントアウト
-map <Leader>c gcjj
+map <Leader>c gcc
 " fzfでファイル, 単語検索　
 " ファイル内で単語検索
 nnoremap <silent> <Leader>f :Lines<CR>
