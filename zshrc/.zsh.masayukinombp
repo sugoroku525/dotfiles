@@ -129,3 +129,12 @@ if [ $count -eq 0 ]; then
 elif [ $count -eq 1 ]; then
     echo `tmux a`
 fi
+
+# ファイルに含まれる文字数カウント
+alias count='wc -m'
+
+# Texに関わるコマンドを実行するためのPATH
+export PATH=$PATH:/usr/local/texlive/2023/bin/universal-darwin
+
+
+
