@@ -136,5 +136,4 @@ alias count='wc -m'
 # Texに関わるコマンドを実行するためのPATH
 export PATH=$PATH:/usr/local/texlive/2023/bin/universal-darwin
 
-
-
+alias tl='tmux ls'
