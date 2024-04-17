@@ -7,6 +7,9 @@ mkdir ~/Tools
 git clone git@github.com:b4b4r07/enhancd.git ~/Tools/enhancd
 echo 'source ~/Tools/enhancd/init.sh' >>~/.zshrc
 
+############ lazygitのインストール ############
+brew install jesseduffield/lazygit/lazygit
+
 ############ lazyvimのインストール ############
 # required
 mv ~/.config/nvim{,.bak}
