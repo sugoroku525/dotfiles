@@ -28,7 +28,10 @@ plugins=(git zsh-syntax-highlighting zsh-autosuggestions)
 
 source $ZSH/oh-my-zsh.sh
 
+# enhancd
 source ~/Tools/enhancd/init.sh
+
+# fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 export ENHANCD_FILTER="fzf --height 40%:fzy"
 
